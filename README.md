@@ -12,19 +12,19 @@ _You need to have python installed on your computer_
 
 - Open a terminal window and navigate to the folder with the `main.py` file in it.
 - Run the command `python main.py` to run the default cleanup process.
-- Additional arguments can be given, such as the flags below.
+- Additional arguments can be given as the flags below.
 
 <br>
 
 ### **Flags**
 
-`-r` | Automatically rename files to date of download / edit.
+`-r` Automatically rename files to date of download / edit.
 
-`-c` | Will request an input for new name of each file. Leaving the input empty will just keep the current filename.
+`-c` Will request an input for new name of each file. Leaving the input empty will just keep the current filename.
 
-`-d` | Delete all `.exe` files. This is usually done to remove installers. Will run default process as well.
+`-d` Delete all `.exe` files. This is usually done to remove installers. Will run default process as well.
 
-`-D` | Delete **every** file in downloads folder.
+`-D` Delete **every** file in downloads folder.
 
 <br>
 
