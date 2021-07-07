@@ -39,7 +39,8 @@ if (delete_all_flag and delete_installers_flag) or (auto_rename_flag and custom_
 
 # Confirm deletion
 if delete_all_flag:
-    yn = input(f"You are about to delete all files and folders in C:/Users/{USER}/Downloads. Proceed? y/n: ")
+    print(f"You are about to delete all files and folders in C:/Users/{USER}/Downloads.")
+    yn = input("Proceed? y/n: ")
     if yn != "y": exit()
 
 counter = 0
