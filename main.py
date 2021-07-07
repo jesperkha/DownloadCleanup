@@ -19,8 +19,8 @@ config = json.load(open("./config.json"))
 
 USER = os.getlogin()
 DEST_FOLDER = config["DEST_DIR"]
-USE_DEST_FOLDER = config["user_dest_dir"]
-TARGET_FOLDER = f"C:/Users/{USER}/Downloads"
+USE_DEST_FOLDER = config["use_dest_dir"]
+TARGET_FOLDER = config["TARGET_DIR"].format(USER)
 os.chdir(TARGET_FOLDER)
 
 # Destination folder for each file type
