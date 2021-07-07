@@ -37,6 +37,11 @@ delete_installers_flag = "-d" in args
 
 if (delete_all_flag and delete_installers_flag) or (auto_rename_flag and custom_rename_flag): _exit("Overlapping arguments")
 
+# Confirm deletion
+if delete_all_flag:
+    yn = input(f"You are about to delete all files and folders in C:/Users/{USER}/Downloads. Proceed? y/n: ")
+    if yn != "y": exit()
+
 counter = 0
 errors  = 0
 deleted = 0
@@ -45,18 +50,19 @@ t = time.time()
 
 for f in os.listdir(os.curdir):
     split = f.lower().split(".")
+
+    # Delete likely installers or all files
+    if (len(split) == 2 and split[1] == "exe" and delete_installers_flag) or delete_all_flag:
+        os.system(f'del "{f}"')
+        deleted += 1
+        continue
+
     if len(split) != 2:
         continue
 
     name, ext = split
 
     if ext == "ini":
-        continue
-
-    # Delete likely installers or all files
-    if (ext == "exe" and delete_installers_flag) or delete_all_flag:
-        os.system(f'del "{f}"')
-        deleted += 1
         continue
 
     if ext in accepted:
